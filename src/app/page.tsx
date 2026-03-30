@@ -1,6 +1,9 @@
+import HomeClient from "@/components/HomeClient";
 
 export default function Home() {
   return (
-     <div className="text-3xl font-semibold ">Home page </div>
+    <>
+     <HomeClient />
+    </>
   );
 }
