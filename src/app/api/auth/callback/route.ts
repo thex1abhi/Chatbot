@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({ message: "code not found" }, { status: 400 })
     }
     const session = await scalekit.authenticateWithCode(code, redirectUri) 
-     console.log(session);
+    //  console.log(session);
     const response = NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}`)
     response.cookies.set("access_token", session.accessToken, {
         httpOnly: true,
@@ -19,4 +19,4 @@ export async function GET(req: NextRequest) {
         path: "/"
     })
     return response; 
-}  
+}   
