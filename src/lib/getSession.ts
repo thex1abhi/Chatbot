@@ -6,7 +6,7 @@ export async function getSession() {
     const token = session.get("access_token")?.value
     if (!token) {
         return null;
-    }
+    } 
     try {
         const result: any = await scalekit.validateToken(token)
         const user = await scalekit.user.getUser(result.sub) 
