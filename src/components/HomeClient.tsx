@@ -1,6 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Footer from "./Footer";
 
 function HomeClient({ email }: { email: string }) {
   const handleLogin = () => {
@@ -18,6 +19,24 @@ function HomeClient({ email }: { email: string }) {
     document.addEventListener("mousedown", handler)
     return () => document.removeEventListener("mousedown", handler)
   }, [])
+
+  const features = [
+    {
+      title: "24/7 Customer Support",
+      description:
+        "Provide instant responses to customer queries anytime without human intervention."
+    },
+    {
+      title: "Customizable Responses",
+      description:
+        "Train and customize the chatbot to match your brand voice and business needs."
+    },
+    {
+      title: "Secure & Private",
+      description:
+        "Ensures data protection with secure conversations and privacy compliance."
+    }
+  ]
 
   return (
     <div
@@ -94,8 +113,8 @@ function HomeClient({ email }: { email: string }) {
                   onClick={handleLogin}
                 >Get Started</button>}
 
-              <button className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700  font-medium
-              hover:bg-zinc-100 transition"> Learn More </button>
+              <a href="#feature"
+                className="px-7 py-3 rounded-xl border border-zinc-300 text-zinc-700  font-medium hover:bg-zinc-100 transition "> Learn More </a>
             </div>
           </motion.div>
           {/* right div  */}
@@ -110,7 +129,7 @@ function HomeClient({ email }: { email: string }) {
 
               <div className="space-y-3"  >
                 {/* user meassge chat  */}
-                <div className="bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-fit ">     Do you offer cash on deliver ??  </div>
+                <div className="bg-black text-white rounded-lg px-4 py-2 text-sm ml-auto w-fit ">     Do you offer cash on delivery ??  </div>
 
                 {/* ai response chat   */}
                 <div className="bg-zinc-100 rounded-lg px-4 py-2 w-fit text-sm">
@@ -133,6 +152,46 @@ function HomeClient({ email }: { email: string }) {
         </div>
 
       </section>
+
+      <section id="feature"
+        className="bg-zinc-50 py-28 px-6 border-t border-zinc-200">
+        <div className="max-w-6xl mx-auto ">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: false }}
+            className="text-3xl font-semibold text-center" >
+            Why businesses Choose chatbot
+          </motion.h2>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-10 ">
+            {features.map((feature, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2 }}
+                key={index}
+                className=" bg-white border border-gray-200  rounded-xl   p-6  text-center   
+       transition-all duration-300  hover:-translate-y-1  hover:shadow-md  "
+              >
+                <h1 className="text-lg font-medium">
+                  {feature.title}
+                </h1>
+
+                <p className="text-gray-600  leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* footer  */}
+      <Footer />
+ 
     </div>
   );
 }

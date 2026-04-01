@@ -1,2 +1,17 @@
 @import "tailwindcss";
+ 
+/* globals.css */
+.card-fade {
+  animation: cardFade 0.5s ease forwards;
+}
 
+@keyframes cardFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
