@@ -1,6 +1,4 @@
-  
-  import React from "react";
-  
+
   const dashboard = () => {
     return (
       <div className="">
@@ -9,5 +7,6 @@
     )
   };
   
-  export default dashboard;
+  export default dashboard; 
+  
   

@@ -3,8 +3,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import Footer from "./Footer";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 function HomeClient({ email }: { email: string }) {
+  const router = useRouter();
   const handleLogin = () => {
     window.location.href = "/api/auth/login"
   }
@@ -41,11 +43,12 @@ function HomeClient({ email }: { email: string }) {
   const handleLogout = async () => {
     try {
       const result = await axios.get("/api/auth/logout")
-      window.location.href="/"
+      window.location.href = "/"
     } catch (error) {
       console.log(error);
-    }   
+    }
   }
+
 
   return (
     <div
@@ -77,8 +80,8 @@ function HomeClient({ email }: { email: string }) {
                 className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border border-zinc-200 overflow-hidden  " >
                 <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100 "
                 >Dashboard</button>
-                <button   onClick={handleLogout} className="  w-full text-left hover:bg-zinc-100 px-4 py-3 text-sm text-red-600  "
-                > Logout</button> 
+                <button onClick={handleLogout} className="  w-full text-left hover:bg-zinc-100 px-4 py-3 text-sm text-red-600  "
+                > Logout</button>
 
               </motion.div>)}
             </AnimatePresence>
@@ -112,12 +115,12 @@ function HomeClient({ email }: { email: string }) {
               Add a powerful chatbot to your website in minutes,
               Let your customer get instant answers using your own business Knowledge </p>
             <div className="mt-10 flex gap-4">
-              {email ? (<a href="/dashboard"
+              {email ? (<button onClick={() => router.push("/dashboard")}
 
                 className="px-7 py-3 rounded-xl bg-black text-white font-medium
-              hover:bg-zinc-800 transition disabled:opacity-60  
+              hover:bg-zinc-800 transition disabled:opacity-60 cursor-pointer  
               "
-              >Go to  Dashboard</a>) :
+              >Go to  Dashboard</button>) :
 
                 <button className="px-7 py-3 rounded-xl bg-black text-white font-medium
               hover:bg-zinc-800 transition disabled:opacity-60   "
