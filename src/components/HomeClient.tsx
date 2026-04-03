@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "./Footer";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { features } from "../../data/data";
 
 function HomeClient({ email }: { email: string }) {
   const router = useRouter();
@@ -23,23 +24,7 @@ function HomeClient({ email }: { email: string }) {
     return () => document.removeEventListener("mousedown", handler)
   }, [])
 
-  const features = [
-    {
-      title: "24/7 Customer Support",
-      description:
-        "Provide instant responses to customer queries anytime without human intervention."
-    },
-    {
-      title: "Customizable Responses",
-      description:
-        "Train and customize the chatbot to match your brand voice and business needs."
-    },
-    {
-      title: "Secure & Private",
-      description:
-        "Ensures data protection with secure conversations and privacy compliance."
-    }
-  ]
+
   const handleLogout = async () => {
     try {
       const result = await axios.get("/api/auth/logout")
@@ -64,7 +49,7 @@ function HomeClient({ email }: { email: string }) {
       border-zinc-200 "
       >
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between ">
-          <div className=" text-2xl  font-semibold tracking-tight">
+          <div className=" text-2xl  font-semibold cursor-pointer tracking-tight">
             Chat<span className="text-teal-900">Bot</span>
           </div>
           {email ? <div className="relative " ref={popupref} >

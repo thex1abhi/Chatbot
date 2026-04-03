@@ -1,12 +1,16 @@
+import DashboardClient from "@/components/DashboardClient";
+import { getSession } from "@/lib/getSession";
+import { redirect } from "next/navigation";
 
-  const dashboard = () => {
-    return (
-      <div className="">
-        
-      </div>
-    )
-  };
-  
-  export default dashboard; 
-  
-  
+export default async function Dashboard() {
+  const session = await getSession();
+
+  if (!session?.user?.id) {
+    redirect("/");
+  }
+
+  return (
+    <DashboardClient ownerId={session.user.id} />
+  );
+}
+
