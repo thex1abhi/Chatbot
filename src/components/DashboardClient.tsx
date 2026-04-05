@@ -50,14 +50,14 @@ function DashboardClient({ ownerId }: { ownerId: string }) {
                 initial={{ y: -50 }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl  border-b 
-      border-zinc-200 "
+                className="fixed top-0 left-0 w-full bg-white/70 backdrop-blur-xl 
+                  border-b   border-zinc-200 "
             >
                 <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between ">
                     <div onClick={() => navigate.push("/")} className=" cursor-pointer text-2xl  font-semibold tracking-tight">
                         Chat<span className="text-teal-900">Bot</span>
                     </div>
-                    <button className="px-4 py-2 font-semibold  rounded-lg border border-zinc-300 text-sm hover:bg-zinc-100 transition">
+                    <button onClick={() => navigate.push("/embed")} className="px-4 py-2 font-semibold  rounded-lg border border-zinc-300 text-sm hover:bg-zinc-100 transition  cursor-pointer ">
                         Embed ChatBot
                     </button>
                 </div>
