@@ -7,8 +7,11 @@ import { useRouter } from "next/navigation";
 import { features } from "../../data/data";
 
 function HomeClient({ email }: { email: string }) {
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
-  const handleLogin = () => {
+  const handleLogin = () => { 
+    setLoading(true);
     window.location.href = "/api/auth/login"
   }
   const [open, setOpen] = useState(false);
@@ -53,7 +56,7 @@ function HomeClient({ email }: { email: string }) {
             Chat<span className="text-teal-900">Bot</span>
           </div>
           {email ? <div className="relative " ref={popupref} >
-            <button className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold hover:scale-105 transition "
+            <button className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold cursor-pointer hover:scale-105 transition "
               onClick={() => setOpen(!open)}
             >  {firstletter}
             </button>
@@ -76,9 +79,10 @@ function HomeClient({ email }: { email: string }) {
               onClick={handleLogin}
               className="px-5 py-2 rounded-full 
            bg-black text-white text-sm font-semibold cursor-pointer
-            hover:bg-zinc-900 transition disabled:opacity-60 flex items-center gap-2  "
+            hover:bg-zinc-900 transition disabled:opacity-60 flex items-center gap-2  " 
+            disabled={loading}
             >
-              Login
+              {loading ?"Loading...":"Login"}
             </button>}
 
         </div>
