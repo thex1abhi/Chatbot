@@ -68,7 +68,7 @@ function HomeClient({ email }: { email: string }) {
                 className="absolute right-0 mt-3 w-44 bg-white rounded-xl shadow-xl border border-zinc-200 overflow-hidden  " >
                 <button className="w-full text-left px-4 py-3 text-sm hover:bg-zinc-100 "
                 >Dashboard</button>
-                <button onClick={handleLogout} className="  w-full text-left hover:bg-zinc-100 px-4 py-3 text-sm text-red-600  "
+                <button onClick={handleLogout} className="  cursor-pointer w-full text-left hover:bg-zinc-100 px-4 py-3 text-sm text-red-600  "
                 > Logout</button>
 
               </motion.div>)}

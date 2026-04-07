@@ -74,7 +74,7 @@ function EmbedClient({ ownerId }: { ownerId: string }) {
                                             <span className="">  ╳ </span>
                                         </div>
                                         <div className="p-3 space-y-2 bg-zinc-50">
-                                            <div className="bg-zinc-200 text-zinc-800 text-xs px-3 py-2 rounded-lg ml-auto w-fit">
+                                            <div className="bg-zinc-200  text-zinc-800 text-xs px-3 py-2 rounded-lg ml-0 w-fit">
                                                 Hii ! How can i help you ??
                                             </div>
                                             <div className="bg-black text-white text-xs px-3 py-2 rounded-lg ml-auto w-fit">
